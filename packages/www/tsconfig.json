@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["es6", "dom", "esnext.asynciterable"],
+    "rootDir": "src",
+    "baseUrl": ".",
+    "outDir": "build/dist",
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
+}

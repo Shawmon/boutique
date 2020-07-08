@@ -1,0 +1,19 @@
+{
+  "name": "lerna-repo",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "dev:www": "lerna run dev --scope=boutique-www",
+    "dev:api": "lerna run dev --scope=boutique-api",
+    "dev": "lerna run dev --scope={boutique-api,boutique-www}",
+    "lint:www": "lerna run lint --scope=boutique-www",
+    "lint:api": "lerna run lint --scope=boutique-api",
+    "lint": "lerna run lint --scope={boutique-api,boutique-www}"
+  }
+}

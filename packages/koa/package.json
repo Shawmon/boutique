@@ -1,0 +1,42 @@
+{
+  "name": "boutique-koa",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist/cjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon -e ts -w ./src -x npm run start",
+    "build:esm": "tsc -p tsconfig.json --outDir src --module es2015 --sourceMap --outDir dist/esm",
+    "build:cjs": "tsc -p tsconfig.json --outDir src --module commonjs --sourceMap --outDir dist/cjs",
+    "build:types": "tsc -p tsconfig.json --outDir src --emitDeclarationOnly --declarationMap --declaration --declarationDir dist/types",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:types"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-cache-control": "^2.0.0",
+    "koa-compose": "^4.1.0",
+    "koa-compress": "^4.0.1",
+    "koa-helmet": "^5.2.0",
+    "koa-router": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/koa-cache-control": "^2.0.1",
+    "@types/koa-compose": "^3.2.5",
+    "@types/koa-compress": "^4.0.0",
+    "@types/koa-helmet": "^5.2.0",
+    "@types/koa-router": "^7.4.1",
+    "@types/koa__cors": "^3.0.1",
+    "@types/node": "^14.0.14",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
