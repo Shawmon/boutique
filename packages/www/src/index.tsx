@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import ApolloClient, {InMemoryCache} from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
-import registerServiceWorker from './registerServiceWorker';
 
 import App from './App';
+import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
   uri: 'http://10.10.10.32:4000',
@@ -20,4 +20,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-registerServiceWorker();
+serviceWorker.unregister();

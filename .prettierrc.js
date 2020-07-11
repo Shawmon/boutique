@@ -11,4 +11,5 @@ module.exports = {
   endOfLine: 'lf',
   eslintIntegration: true,
   eolLast: true,
+  jsxBracketSameLine: true,
 };

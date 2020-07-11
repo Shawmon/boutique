@@ -19,10 +19,6 @@ const GraphQLBookType: GraphQLObjectType<Book, null> = new GraphQLObjectType({
   },
 });
 
-// type BookQueryArgs = {
-//   id: string
-// }
-
 const GraphQLQueryType: GraphQLObjectType<null, null> = new GraphQLObjectType({
   name: 'Query',
   fields: {

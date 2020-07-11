@@ -5,10 +5,16 @@
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "lib": ["es6", "dom", "esnext.asynciterable"],
+    "lib": [
+      "es6",
+      "dom",
+      "esnext.asynciterable"
+    ],
     "rootDir": "src",
     "baseUrl": ".",
     "outDir": "build/dist",
+    "allowJs": true,
+    "noEmit": true
   },
   "exclude": [
     "node_modules",
@@ -18,5 +24,8 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
+  ],
+  "include": [
+    "src"
   ]
 }

@@ -1,10 +1,10 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: [
-    'airbnb',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  env: {
+    browser: true,
+    node: true,
+  },
+  extends: ['airbnb', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'react-app'],
   plugins: ['@typescript-eslint'],
   rules: {
     'no-console': 'off',
@@ -17,6 +17,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'import/no-cycle': 'off',
     'react/jsx-filename-extension': [1, {extensions: ['.ts', '.tsx', '.js', '.jsx']}],
   },
 };

@@ -2,35 +2,36 @@
   "name": "boutique-api",
   "private": true,
   "version": "0.0.0",
-  "devDependencies": {
+  "main": "dist/cjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-typescript": "^7.3.3",
     "@types/graphql": "^14.2.0",
     "@types/node": "^12.0.4",
+    "apollo-server": "^2.15.1",
     "eslint": "^7.4.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.3",
+    "graphql": "^15.2.0",
     "nodemon": "^1.19.1",
     "prettier": "^2.0.5",
-    "ts-node": "^8.2.0",
-    "typescript": "^3.5.1"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "@typescript-eslint/parser": "^3.6.0",
-    "apollo-server": "^2.15.1",
-    "graphql": "^15.2.0",
+    "react-scripts": "3.4.0",
     "reflect-metadata": "^0.1.13",
-    "type-graphql": "^1.0.0-rc.3"
+    "ts-node": "^8.2.0",
+    "type-graphql": "^1.0.0-rc.3",
+    "typescript": "^3.5.1"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon -e ts -w ./src -x ts-node src/index.ts",
-    "watch:serve": "ts-node src/index.ts",
-    "lint": "eslint --fix src"
+    "clean": "rm -rf build",
+    "build:esm": "tsc -p tsconfig.json --outDir src --module es2015 --sourceMap --outDir dist/esm",
+    "build:cjs": "tsc -p tsconfig.json --outDir src --module commonjs --sourceMap --outDir dist/cjs",
+    "build:types": "tsc -p tsconfig.json --outDir src --emitDeclarationOnly --declarationMap --declaration --declarationDir dist/types",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:types",
+    "lint": "eslint --fix src --ext .js,.ts,.jsx,.tsx"
   }
 }
